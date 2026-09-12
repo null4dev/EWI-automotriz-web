@@ -1,0 +1,17 @@
+# Dependencies & Tooling
+node_modules/
+.npm/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Local agent metadata
+.atl/
+.opencode/

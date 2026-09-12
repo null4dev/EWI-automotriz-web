@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DRIVE - Concesionario oficial de superdeportivos, división de camiones pesados y taller de mantenimiento especializado.">
+    <title>DRIVE | Superdeportivos, Camiones & Taller Oficial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- 1. HEADER / NAVBAR (2 FILAS ESTILO JAMESEDITION) -->
+    <header class="site-header" id="siteHeader">
+        <!-- Fila Superior -->
+        <div class="header-top-row">
+            <div class="container header-top-inner">
+                <div class="header-left">
+                    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menú">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <a href="#" class="brand-logo">
+                        <span class="logo-title">DRIVE</span>
+                    </a>
+                </div>
+                <div class="header-right">
+                    <a href="tel:+51987098654" class="header-link">
+                        <span>Ventas &amp; Asesoría</span>
+                    </a>
+                    <button class="header-pill-btn" id="headerCtaBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="user-icon">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Cotizar / Cita</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú de Navegación -->
+        <nav class="main-nav" id="mainNav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#slider" class="nav-link active">Inicio</a></li>
+                    <li><a href="#modelos" class="nav-link">Autos</a></li>
+                    <li><a href="#camiones" class="nav-link">Camiones</a></li>
+                    <li><a href="#servicios" class="nav-link">Taller &amp; Servicios</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. SLIDER HERO -->
+    <section class="slider-section" id="slider">
+        <div class="slider-wrapper" id="sliderWrapper">
+            <div class="slide-item active" data-index="0">
+                <div class="slide-image-box">
+                    <img src="img/slide1.webp" alt="Porsche 911 GT3 RS en Big Sur" class="slide-photo">
+                    <div class="slide-dark-gradient"></div>
+                </div>
+                <div class="container slide-text-wrap">
+                    <div class="slide-badge">
+                        <span class="badge-dot"></span>
+                        <span>DISPONIBILIDAD INMEDIATA · HOMOLOGACIÓN FIA</span>
+                    </div>
+                    <h1 class="slide-headline">PORSCHE 911 GT3 RS</h1>
+                    <p class="slide-description">La cúspide de la ingeniería de circuito para la carretera. Motor bóxer atmosférico de 4.0 litros, línea roja a 9,000 RPM y aerodinámica activa con sistema DRS integrado.</p>
+                </div>
+            </div>
+            <div class="slide-item" data-index="1">
+                <div class="slide-image-box">
+                    <img src="img/slide2.webp" alt="Aston Martin DB11 en Villa Moderna" class="slide-photo">
+                    <div class="slide-dark-gradient"></div>
+                </div>
+                <div class="container slide-text-wrap">
+                    <div class="slide-badge">
+                        <span class="badge-dot dot-blue"></span>
+                        <span>GRAN TURISMO BRITÁNICO · EDICIÓN DRIVE</span>
+                    </div>
+                    <h1 class="slide-headline">ASTON MARTIN DB11</h1>
+                    <p class="slide-description">Pureza escultórica y elegancia atemporal. Propulsor V8 Twin-Turbo de 4.0 litros, acabados en piel natural cosida a mano y un equilibrio sublime entre confort y dinamismo.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Slider Progress Bar -->
+        <div class="slider-progress-bar">
+            <div class="slider-progress-fill" id="sliderProgressFill"></div>
+        </div>
+        <div class="slider-nav-container container">
+            <div class="slider-arrows">
+                <button class="slider-arrow-btn" id="prevSlideBtn" aria-label="Vehículo anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="slider-arrow-btn" id="nextSlideBtn" aria-label="Vehículo siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. AUTOS (HORIZONTAL ACCORDION) -->
+    <main>
+        <section class="section-block" id="modelos">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-eyebrow">COLECCIÓN DRIVE 2026</span>
+                    <h2 class="section-heading">Superdeportivos de Élite</h2>
+                    <p class="section-subheading">Unidades seleccionadas con entrega inmediata, garantía oficial de fábrica y programas de financiación a medida.</p>
+                </div>
+                <div class="vehicle-accordion">
+                    <!-- Auto 1 -->
+                    <article class="vehicle-panel" tabindex="0" style="--accent: #c8a97e;">
+                        <img src="img/slide1.webp" alt="Porsche 911 GT3 RS" class="panel-bg">
+                        <div class="panel-overlay"></div>
+                        <div class="panel-content">
+                            <h3 class="panel-title">Porsche 911 GT3 RS</h3>
+                            <div class="panel-details">
+                                <span class="panel-category">Cup / Circuito &amp; Carretera</span>
+                                <p class="panel-excerpt">Paquete Weissach con jaula antivuelco de carbono, alerón biplano con DRS y dirección en eje trasero.</p>
+                                <div class="panel-footer">
+                                    <div class="panel-price"><span class="price-from">Desde</span><span class="price-num">286,470 €</span></div>
+                                    <button class="btn btn-solid" onclick="openAppointmentModal('Porsche 911 GT3 RS')">Solicitar Asignación</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Auto 2 -->
+                    <article class="vehicle-panel" tabindex="0" style="--accent: #3b82f6;">
+                        <img src="img/slide2.webp" alt="Aston Martin DB11" class="panel-bg">
+                        <div class="panel-overlay"></div>
+                        <div class="panel-content">
+                            <h3 class="panel-title">Aston Martin DB11</h3>
+                            <div class="panel-details">
+                                <span class="panel-category">Coupé V8 de Lujo</span>
+                                <p class="panel-excerpt">Aerodinámica Curlicue patentada, piel natural Bridge of Weir cosida a mano e insonorización acústica premium.</p>
+                                <div class="panel-footer">
+                                    <div class="panel-price"><span class="price-from">Desde</span><span class="price-num">235,000 €</span></div>
+                                    <button class="btn btn-solid" onclick="openAppointmentModal('Aston Martin DB11')">Solicitar Asignación</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Auto 3 -->
+                    <article class="vehicle-panel" tabindex="0" style="--accent: #ef4444;">
+                        <img src="img/model_ferrari.webp" alt="Ferrari 296 GTB" class="panel-bg">
+                        <div class="panel-overlay"></div>
+                        <div class="panel-content">
+                            <h3 class="panel-title">Ferrari 296 GTB</h3>
+                            <div class="panel-details">
+                                <span class="panel-category">Berlinetta Híbrida</span>
+                                <p class="panel-excerpt">Paquete Assetto Fiorano con amortiguadores Multimatic GT de competición y modo 100% eléctrico eDrive.</p>
+                                <div class="panel-footer">
+                                    <div class="panel-price"><span class="price-from">Desde</span><span class="price-num">315,000 €</span></div>
+                                    <button class="btn btn-solid" onclick="openAppointmentModal('Ferrari 296 GTB')">Solicitar Asignación</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CAMIONES (HORIZONTAL ACCORDION) -->
+        <section class="section-block bg-subtle" id="camiones">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-eyebrow">TRANSPORTE PESADO &amp; LOGÍSTICA DE ÉLITE</span>
+                    <h2 class="section-heading">División Comercial &amp; Camiones</h2>
+                    <p class="section-subheading">Tractocamiones de alta gama con máxima eficiencia operativa, cabinas ergonómicas y fiabilidad para flotas.</p>
+                </div>
+                <div class="vehicle-accordion">
+                    <!-- Camión 1 -->
+                    <article class="vehicle-panel" tabindex="0" style="--accent: #00bcd4;">
+                        <img src="img/truck_actros.webp" alt="Mercedes-Benz Actros L" class="panel-bg">
+                        <div class="panel-overlay"></div>
+                        <div class="panel-content">
+                            <h3 class="panel-title">Mercedes-Benz Actros 2653 L</h3>
+                            <div class="panel-details">
+                                <span class="panel-category">Tractocamión Clase 8 Europeo</span>
+                                <p class="panel-excerpt">Motor OM 471 de 12.8L, Predictive Powertrain Control (PPC), cámaras MirrorCam y cabina GigaSpace.</p>
+                                <div class="panel-footer">
+                                    <div class="panel-price"><span class="price-from">Desde</span><span class="price-num">178,000 €</span></div>
+                                    <button class="btn btn-solid" onclick="openAppointmentModal('Mercedes-Benz Actros L')">Cotizar Camión / Flota</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Camión 2 -->
+                    <article class="vehicle-panel" tabindex="0" style="--accent: #3b82f6;">
+                        <img src="img/truck_cascadia.webp" alt="Freightliner Cascadia" class="panel-bg">
+                        <div class="panel-overlay"></div>
+                        <div class="panel-content">
+                            <h3 class="panel-title">Freightliner Cascadia</h3>
+                            <div class="panel-details">
+                                <span class="panel-category">Tractocamión Larga Distancia</span>
+                                <p class="panel-excerpt">Motor Detroit DD15 de 14.8L, transmisión automatizada DT12, radar Detroit Assurance y cabina SleeperCab 72".</p>
+                                <div class="panel-footer">
+                                    <div class="panel-price"><span class="price-from">Desde</span><span class="price-num">165,000 €</span></div>
+                                    <button class="btn btn-solid" onclick="openAppointmentModal('Freightliner Cascadia')">Cotizar Camión / Flota</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Camión 3 -->
+                    <article class="vehicle-panel" tabindex="0" style="--accent: #f5a623;">
+                        <img src="img/truck_volvo.webp" alt="Volvo FH16 750" class="panel-bg">
+                        <div class="panel-overlay"></div>
+                        <div class="panel-content">
+                            <h3 class="panel-title">Volvo FH16 750 Globetrotter</h3>
+                            <div class="panel-details">
+                                <span class="panel-category">Carga Pesada Especial 6x4</span>
+                                <p class="panel-excerpt">Motor D16K de 16.1L con 3,550 Nm para hasta 120 toneladas, caja I-Shift con marchas ultracortas Crawler.</p>
+                                <div class="panel-footer">
+                                    <div class="panel-price"><span class="price-from">Desde</span><span class="price-num">192,000 €</span></div>
+                                    <button class="btn btn-solid" onclick="openAppointmentModal('Volvo FH16 750')">Cotizar Camión / Flota</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SERVICIOS Y TALLER -->
+        <section class="section-block" id="servicios">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-eyebrow">SERVICIO TÉCNICO OFICIAL</span>
+                    <h2 class="section-heading">Taller & Postventa Especializada</h2>
+                    <p class="section-subheading">Mantenimiento integral, diagnóstico computarizado y repuestos genuinos para autos deportivos y camiones pesados.</p>
+                </div>
+                <div class="services-mosaic">
+                    <div class="mosaic-item">
+                        <span class="mosaic-num">01</span>
+                        <div class="service-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        </div>
+                        <h3 class="service-title">Mantenimiento Preventivo</h3>
+                        <p class="service-desc">Revisiones periódicas de fábrica, cambio de fluidos sintéticos y sellado oficial de garantía.</p>
+                    </div>
+                    <div class="mosaic-item">
+                        <span class="mosaic-num">02</span>
+                        <div class="service-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <h3 class="service-title">Diagnóstico Computarizado</h3>
+                        <p class="service-desc">Escáneres originales de cada marca para calibración de centralitas, frenos y telemetría de pista.</p>
+                    </div>
+                    <div class="mosaic-item">
+                        <span class="mosaic-num">03</span>
+                        <div class="service-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        </div>
+                        <h3 class="service-title">Taller de Flotas &amp; Pesados</h3>
+                        <p class="service-desc">Instalaciones con fosos dedicados, frenómetro de rodillos y alineación láser para ejes múltiples.</p>
+                    </div>
+                    <div class="mosaic-item">
+                        <span class="mosaic-num">04</span>
+                        <div class="service-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <h3 class="service-title">Repuestos Genuinos OEM</h3>
+                        <p class="service-desc">Stock permanente de componentes originales con trazabilidad directa de fábrica y 2 años de garantía.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. BANNER CTA DE SERVICIOS (BLOQUE COMPLETO PREVIO AL FOOTER) -->
+    <section class="service-cta-block">
+        <div class="container service-cta-inner">
+            <div class="service-cta-text">
+                <h3 class="service-cta-title">¿Necesitas agendar mantenimiento para tu auto o camión?</h3>
+                <p class="service-cta-desc">Reserva tu turno de taller con anticipación para atención preferente.</p>
+            </div>
+            <button class="btn btn-solid btn-lg" onclick="openAppointmentModal('Servicio de Taller / Mantenimiento')">Agendar Turno de Taller</button>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-main-grid">
+            <div class="footer-brand-info">
+                <a href="#" class="brand-logo footer-logo">
+                    <span class="logo-title">DRIVE</span>
+                </a>
+                <p class="footer-bio">Concesionario oficial de superdeportivos, vehículos comerciales pesados y servicio técnico especializado.</p>
+                <div class="footer-phone-badge">
+                    <span class="badge-label">Central Telefónica Directa</span>
+                    <a href="tel:+51987098654" class="phone-link">+51 987 098 654</a>
+                </div>
+            </div>
+            <div class="footer-nav-col">
+                <h5 class="footer-heading">Navegación</h5>
+                <ul class="footer-list">
+                    <li><a href="#slider">Inicio</a></li>
+                    <li><a href="#modelos">Autos de Élite</a></li>
+                    <li><a href="#camiones">División Camiones</a></li>
+                    <li><a href="#servicios">Taller & Postventa</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav-col">
+                <h5 class="footer-heading">Atención al Cliente</h5>
+                <ul class="footer-list">
+                    <li><a href="tel:+51987098654">Llamar a Asesor (+51 987 098 654)</a></li>
+                    <li><a href="javascript:void(0)" onclick="openAppointmentModal('Servicio de Taller / Mantenimiento')">Agendar Turno de Taller</a></li>
+                    <li><a href="javascript:void(0)" onclick="openAppointmentModal('Consulta General')">Solicitar Cotización</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="container footer-bottom-layout">
+                <p class="copyright-text">© 2026 DRIVE S.L. Todos los derechos reservados.</p>
+                <div class="footer-legal-links">
+                    <a href="tel:+51987098654">Contacto Directo</a>
+                    <a href="#slider">Volver al Inicio ↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 7. MODAL -->
+    <div class="modal-backdrop" id="appointmentModal">
+        <div class="modal-dialog">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar modal">&times;</button>
+            <div class="modal-top">
+                <span class="modal-eyebrow">ATENCIÓN PERSONALIZADA</span>
+                <h3 class="modal-title-text" id="modalTitle">Solicitar Asignación / Cita</h3>
+                <p class="modal-desc-text">Completa tus datos y un Asesor se comunicará contigo a la brevedad.</p>
+            </div>
+            <form class="modal-form-body" id="appointmentForm">
+                <div class="form-grid-2">
+                    <div class="input-field">
+                        <label for="clientName">Nombre y Apellidos / Empresa</label>
+                        <input type="text" id="clientName" required placeholder="Ej. Fernando González">
+                    </div>
+                    <div class="input-field">
+                        <label for="clientEmail">Correo Electrónico</label>
+                        <input type="email" id="clientEmail" required placeholder="fernando@empresa.com">
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label for="clientPhone">Teléfono de Contacto</label>
+                    <input type="tel" id="clientPhone" required placeholder="+51 987 098 654">
+                </div>
+                <div class="input-field">
+                    <label for="clientVehicle">Unidad o Servicio Requerido</label>
+                    <select id="clientVehicle">
+                        <optgroup label="Autos de Élite">
+                            <option value="Porsche 911 GT3 RS">Porsche 911 GT3 RS (525 CV)</option>
+                            <option value="Aston Martin DB11">Aston Martin DB11 V8 (510 CV)</option>
+                            <option value="Ferrari 296 GTB">Ferrari 296 GTB Híbrido (830 CV)</option>
+                        </optgroup>
+                        <optgroup label="Camiones Pesados">
+                            <option value="Mercedes-Benz Actros L">Mercedes-Benz Actros 2653 L (530 CV)</option>
+                            <option value="Freightliner Cascadia">Freightliner Cascadia (505 HP)</option>
+                            <option value="Volvo FH16 750">Volvo FH16 750 Globetrotter (750 CV)</option>
+                        </optgroup>
+                        <optgroup label="Servicios & Taller">
+                            <option value="Servicio de Taller / Mantenimiento">Mantenimiento Preventivo Oficial</option>
+                            <option value="Diagnostico Computarizado">Diagnóstico Electrónico de Fábrica</option>
+                            <option value="Taller de Flotas">Servicio Técnico para Flotas de Camiones</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-solid btn-full btn-submit-modal">Confirmar Solicitud</button>
+            </form>
+            <div class="modal-confirmed" id="modalConfirmed">
+                <div class="check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h4>Solicitud Registrada con Éxito</h4>
+                <p>Hemos asignado un asesor especialista para coordinar tu cita.</p>
+                <button class="btn btn-outlined" id="closeConfirmedBtn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
