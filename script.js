@@ -1,22 +1,15 @@
-// ==============================================
-// DRIVE - Script de Interactividad & Slider
-// ==============================================
-
+// Navegación, Slider y Modal
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 0. Control de Scroll en Header (Transparente a Sólido) ---
+    // Control de Scroll en Header
     const siteHeader = document.getElementById('siteHeader');
     function handleHeaderScroll() {
         if (!siteHeader) return;
-        if (window.scrollY > 40) {
-            siteHeader.classList.add('scrolled');
-        } else {
-            siteHeader.classList.remove('scrolled');
-        }
+        siteHeader.classList.toggle('scrolled', window.scrollY > 40);
     }
     window.addEventListener('scroll', handleHeaderScroll, { passive: true });
     handleHeaderScroll();
 
-    // --- 1. Navegación Móvil ---
+    // Navegación Móvil
     const mobileToggle = document.getElementById('mobileToggle');
     const mainNav = document.getElementById('mainNav');
 
@@ -27,10 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isOpen = mainNav.classList.toggle('active');
             mobileToggle.classList.toggle('active', isOpen);
             mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            if (siteHeader && isOpen) {
-                siteHeader.classList.add('scrolled');
-            } else if (siteHeader && window.scrollY <= 40) {
-                siteHeader.classList.remove('scrolled');
+            if (siteHeader) {
+                siteHeader.classList.toggle('scrolled', isOpen || window.scrollY > 40);
             }
         });
 
@@ -45,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Cerrar menú al hacer clic fuera
         document.addEventListener('click', (e) => {
             if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && !mobileToggle.contains(e.target)) {
                 mainNav.classList.remove('active');
@@ -58,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 2. Slider Hero con soporte Touch/Swipe, temporizador de 15s y barra de progreso ---
+    // Slider con soporte swipe, 15s y barra de progreso
     const slides = document.querySelectorAll('.slide-item');
     const sliderSection = document.getElementById('slider');
     const prevBtn = document.getElementById('prevSlideBtn');
@@ -157,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startSliderTimer();
     }
 
-    // --- 3. Modal de Citas / Asignación ---
+    // Modal de Citas
     const modal = document.getElementById('appointmentModal');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
     const modalForm = document.getElementById('appointmentForm');
