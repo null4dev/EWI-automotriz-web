@@ -369,6 +369,16 @@ body {
     padding-bottom: 90px;
 }
 
+.slider-section {
+    --accent-gold: #e2c499;
+    --accent-gold-hover: #f3d9a8;
+}
+
+body.light-theme .slider-section {
+    --accent-gold: #e2c499 !important;
+    --accent-gold-hover: #f3d9a8 !important;
+}
+
 .slide-badge {
     display: inline-flex;
     align-items: center;
@@ -377,12 +387,33 @@ body {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: var(--accent-gold);
+    color: #f3d9a8;
+    background: rgba(9, 10, 13, 0.7);
+    border: 1px solid rgba(226, 196, 153, 0.35);
+    border-radius: 9999px;
+    padding: 6px 14px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     margin-bottom: var(--space-3);
+    width: fit-content;
 }
 
-.badge-dot { width: 6px; height: 6px; border-radius: 50%; background-color: var(--accent-gold); }
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; background-color: #f3d9a8; }
 .badge-dot.dot-blue { background-color: var(--accent-blue); }
+
+body.light-theme .slide-badge {
+    color: #f3d9a8 !important;
+    background: rgba(9, 10, 13, 0.7) !important;
+    border-color: rgba(226, 196, 153, 0.35) !important;
+}
+
+body.light-theme .slide-badge span {
+    color: #f3d9a8 !important;
+}
+
+body.light-theme .badge-dot:not(.dot-blue) {
+    background-color: #f3d9a8 !important;
+}
 
 .slide-headline {
     font-family: var(--font-sans);
@@ -960,19 +991,21 @@ body.light-theme {
     --text-muted: #475569;
 }
 
-/* Header en Modo Claro: Fondo claro y nítido para contraste garantizado */
+/* Header en Modo Claro: Transparencia vítrea (Glassmorphism) con desenfoque elegante */
 body.light-theme .site-header {
-    background: rgba(255, 255, 255, 0.96) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
 }
 
 body.light-theme .site-header.scrolled {
-    background-color: #ffffff !important;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
 }
 
 body.light-theme .header-top-row {
