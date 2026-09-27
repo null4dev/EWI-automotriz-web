@@ -12,6 +12,13 @@ node_modules/
 Thumbs.db
 .DS_Store
 
-# Local agent metadata
+# Local agent metadata & Worktrees
 .atl/
 .opencode/
+.kilo/
+.codegraph/
+
+# Documents & Reports
+*.pdf
+*.md
+!README.md

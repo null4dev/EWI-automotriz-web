@@ -192,6 +192,39 @@ body {
     color: var(--accent-gold);
 }
 
+/* Botón Selector de Tema */
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.theme-toggle-btn .icon-moon {
+    display: block;
+    width: 17px;
+    height: 17px;
+}
+
+.theme-toggle-btn .icon-sun {
+    display: none;
+    width: 17px;
+    height: 17px;
+}
+
 /* Botón Ovalado  */
 .header-pill-btn {
     display: inline-flex;
@@ -359,11 +392,12 @@ body {
     letter-spacing: -0.02em;
     margin-bottom: var(--space-3);
     max-width: 900px;
+    color: #ffffff;
 }
 
 .slide-description {
     font-size: clamp(0.95rem, 1.3vw, 1.125rem);
-    color: #cbd5e1;
+    color: #e2e8f0;
     max-width: 650px;
     margin-bottom: var(--space-6);
     font-weight: 400;
@@ -575,13 +609,13 @@ body {
 .panel-category {
     display: block;
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: #cbd5e1;
     margin-bottom: var(--space-2);
 }
 
 .panel-excerpt {
     font-size: 0.88rem;
-    color: var(--text-secondary);
+    color: #f1f5f9;
     line-height: 1.5;
     margin-bottom: var(--space-4);
 }
@@ -601,7 +635,7 @@ body {
 
 .price-from {
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: #94a3b8;
 }
 
 .price-num {
@@ -675,7 +709,7 @@ body {
     font-weight: 700;
     margin-bottom: var(--space-3);
     line-height: 1.35;
-    color: #ffffff;
+    color: var(--text-primary);
 }
 
 .service-desc {
@@ -892,6 +926,253 @@ body {
 .btn-submit-modal { margin-top: 8px; padding: 14px; }
 .modal-confirmed { display: none; text-align: center; padding: 24px 0; }
 
+/* Estados de Validación de Formulario */
+.input-field input.is-invalid {
+    border-color: #ef4444 !important;
+    background: rgba(239, 68, 68, 0.06) !important;
+}
+
+.input-field .error-msg {
+    display: none;
+    font-size: 0.76rem;
+    color: #ef4444;
+    font-weight: 500;
+}
+
+.input-field.has-error .error-msg {
+    display: block;
+}
+
+/* Modo Claro (Selector de Tema) - WCAG 2 AA & AAA Compliant */
+body.light-theme {
+    --surface-dark: #f8fafc;
+    --surface-subtle: #f1f5f9;
+    --surface-card: #ffffff;
+    --surface-border: rgba(15, 23, 42, 0.08);
+    --surface-border-strong: rgba(15, 23, 42, 0.16);
+
+    --accent-gold: #96692d;
+    --accent-gold-hover: #7c541e;
+    --accent-gold-dim: rgba(150, 105, 45, 0.12);
+
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #475569;
+}
+
+/* Header en Modo Claro: Fondo claro y nítido para contraste garantizado */
+body.light-theme .site-header {
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .site-header.scrolled {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-theme .header-top-row {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .brand-logo .logo-title {
+    color: #0f172a !important;
+    font-weight: 800 !important;
+}
+
+body.light-theme .header-link {
+    color: #1e293b !important;
+    font-weight: 600 !important;
+}
+
+body.light-theme .header-link:hover {
+    color: #96692d !important;
+}
+
+body.light-theme .header-pill-btn {
+    color: #0f172a !important;
+    border: 1.5px solid #0f172a !important;
+    background: transparent !important;
+    font-weight: 700 !important;
+}
+
+body.light-theme .header-pill-btn:hover {
+    background: #0f172a !important;
+    color: #ffffff !important;
+    border-color: #0f172a !important;
+}
+
+body.light-theme .main-nav .nav-link {
+    color: #334155 !important;
+    font-weight: 600 !important;
+}
+
+body.light-theme .main-nav .nav-link:hover,
+body.light-theme .main-nav .nav-link.active {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+}
+
+body.light-theme .main-nav .nav-link.active::after {
+    background: #96692d !important;
+}
+
+body.light-theme .theme-toggle-btn {
+    color: #0f172a !important;
+    border: 1.5px solid rgba(15, 23, 42, 0.3) !important;
+    background: rgba(15, 23, 42, 0.04) !important;
+}
+
+body.light-theme .theme-toggle-btn:hover {
+    background: rgba(15, 23, 42, 0.08) !important;
+    border-color: #96692d !important;
+    color: #96692d !important;
+}
+
+body.light-theme .theme-toggle-btn .icon-moon {
+    display: none !important;
+}
+
+body.light-theme .theme-toggle-btn .icon-sun {
+    display: block !important;
+}
+
+body.light-theme .mobile-toggle span {
+    background: #0f172a !important;
+}
+
+/* Modal en Modo Claro */
+body.light-theme .modal-dialog {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.12) !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.light-theme .modal-title-text {
+    color: #0f172a !important;
+}
+
+body.light-theme .modal-desc-text {
+    color: #334155 !important;
+}
+
+body.light-theme .input-field label {
+    color: #1e293b !important;
+}
+
+body.light-theme .modal-close {
+    background: rgba(15, 23, 42, 0.04) !important;
+    border-color: rgba(15, 23, 42, 0.1) !important;
+    color: #475569 !important;
+}
+
+body.light-theme .modal-close:hover {
+    background: #0f172a !important;
+    color: #ffffff !important;
+}
+
+body.light-theme .input-field input,
+body.light-theme .input-field select {
+    background: #f8fafc !important;
+    border: 1px solid rgba(15, 23, 42, 0.2) !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .input-field input:focus,
+body.light-theme .input-field select:focus {
+    border-color: #96692d !important;
+    background: #ffffff !important;
+}
+
+body.light-theme .input-field select option,
+body.light-theme .input-field select optgroup {
+    background: #ffffff !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .modal-confirmed h4 {
+    color: #0f172a !important;
+}
+
+body.light-theme .modal-confirmed p {
+    color: #334155 !important;
+}
+
+body.light-theme .modal-confirmed .btn-outlined {
+    color: #0f172a !important;
+    border-color: rgba(15, 23, 42, 0.3) !important;
+    background: transparent !important;
+}
+
+body.light-theme .modal-confirmed .btn-outlined:hover {
+    background: #0f172a !important;
+    color: #ffffff !important;
+}
+
+/* CTA Taller y Footer en Modo Claro */
+body.light-theme .service-cta-block {
+    background-color: #f8fafc !important;
+    border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .service-cta-title {
+    color: #0f172a !important;
+}
+
+body.light-theme .service-cta-desc {
+    color: #334155 !important;
+}
+
+body.light-theme .site-footer {
+    background: #f1f5f9 !important;
+    border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .footer-heading {
+    color: #0f172a !important;
+}
+
+body.light-theme .footer-bio {
+    color: #334155 !important;
+}
+
+body.light-theme .footer-list a {
+    color: #334155 !important;
+}
+
+body.light-theme .footer-list a:hover {
+    color: #0f172a !important;
+}
+
+body.light-theme .badge-label {
+    color: #475569 !important;
+}
+
+body.light-theme .phone-link {
+    color: #96692d !important;
+}
+
+body.light-theme .copyright-text {
+    color: #475569 !important;
+}
+
+body.light-theme .footer-legal-links a {
+    color: #475569 !important;
+}
+
+body.light-theme .footer-legal-links a:hover {
+    color: #0f172a !important;
+}
+
+body.light-theme .footer-bottom-bar {
+    border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
 .check-circle {
     width: 56px;
     height: 56px;
@@ -989,6 +1270,12 @@ body {
         visibility: visible !important;
         transform: translateY(0);
         padding: 24px 0 !important;
+    }
+
+    body.light-theme .main-nav {
+        background: #ffffff !important;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
     }
 
     .main-nav .container {

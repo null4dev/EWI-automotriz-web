@@ -29,6 +29,22 @@
                     <a href="tel:+51987098654" class="header-link">
                         <span>Ventas &amp; Asesoría</span>
                     </a>
+                    <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+                        <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
                     <button class="header-pill-btn" id="headerCtaBtn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="user-icon">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -336,20 +352,23 @@
                 <h3 class="modal-title-text" id="modalTitle">Solicitar Asignación / Cita</h3>
                 <p class="modal-desc-text">Completa tus datos y un Asesor se comunicará contigo a la brevedad.</p>
             </div>
-            <form class="modal-form-body" id="appointmentForm">
+            <form class="modal-form-body" id="appointmentForm" novalidate>
                 <div class="form-grid-2">
                     <div class="input-field">
                         <label for="clientName">Nombre y Apellidos / Empresa</label>
-                        <input type="text" id="clientName" required placeholder="Ej. Fernando González">
+                        <input type="text" id="clientName" required minlength="3" placeholder="Ej. Fernando González" aria-describedby="clientNameError">
+                        <span class="error-msg" id="clientNameError" role="alert" aria-live="polite"></span>
                     </div>
                     <div class="input-field">
                         <label for="clientEmail">Correo Electrónico</label>
-                        <input type="email" id="clientEmail" required placeholder="fernando@empresa.com">
+                        <input type="email" id="clientEmail" required placeholder="fernando@empresa.com" aria-describedby="clientEmailError">
+                        <span class="error-msg" id="clientEmailError" role="alert" aria-live="polite"></span>
                     </div>
                 </div>
                 <div class="input-field">
                     <label for="clientPhone">Teléfono de Contacto</label>
-                    <input type="tel" id="clientPhone" required placeholder="+51 987 098 654">
+                    <input type="tel" id="clientPhone" required pattern="[0-9+ ]{8,15}" placeholder="+51 987 098 654" aria-describedby="clientPhoneError">
+                    <span class="error-msg" id="clientPhoneError" role="alert" aria-live="polite"></span>
                 </div>
                 <div class="input-field">
                     <label for="clientVehicle">Unidad o Servicio Requerido</label>
@@ -386,4 +405,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-// HOLA ESTO ES UNA PRUEBA PARA GITHUB

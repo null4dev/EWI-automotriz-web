@@ -147,6 +147,25 @@ document.addEventListener('DOMContentLoaded', () => {
         startSliderTimer();
     }
 
+    // Selector de Tema (Modo Claro / Modo Oscuro)
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.getItem('drive-theme') === 'light') {
+        document.body.classList.add('light-theme');
+        if (themeToggleBtn) {
+            themeToggleBtn.setAttribute('aria-pressed', 'true');
+            themeToggleBtn.setAttribute('aria-label', 'Cambiar a modo oscuro');
+        }
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const isLight = document.body.classList.toggle('light-theme');
+            themeToggleBtn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+            themeToggleBtn.setAttribute('aria-label', isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+            localStorage.setItem('drive-theme', isLight ? 'light' : 'dark');
+        });
+    }
+
     // Modal de Citas
     const modal = document.getElementById('appointmentModal');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
@@ -155,9 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeConfirmedBtn = document.getElementById('closeConfirmedBtn');
     const headerCtaBtn = document.getElementById('headerCtaBtn');
     const vehicleSelect = document.getElementById('clientVehicle');
+    let lastActiveTrigger = null;
 
     window.openAppointmentModal = function(vehicleName) {
         if (!modal) return;
+        lastActiveTrigger = document.activeElement;
+
         if (vehicleName && vehicleSelect) {
             for (let option of vehicleSelect.options) {
                 if (option.value === vehicleName || option.text.includes(vehicleName)) {
@@ -168,6 +190,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        const dialog = modal.querySelector('.modal-dialog');
+        if (dialog && typeof dialog.animate === 'function') {
+            dialog.animate([
+                { opacity: 0, transform: 'translateY(24px) scale(0.96)' },
+                { opacity: 1, transform: 'translateY(0) scale(1)' }
+            ], {
+                duration: 280,
+                easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                fill: 'forwards'
+            }).finished.then(() => {
+                const firstInput = document.getElementById('clientName');
+                if (firstInput) firstInput.focus();
+            });
+        }
     };
 
     function closeModal() {
@@ -178,9 +215,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (modalForm) {
                 modalForm.reset();
                 modalForm.style.display = 'block';
+                modalForm.querySelectorAll('input').forEach(input => {
+                    input.classList.remove('is-invalid');
+                    const parent = input.closest('.input-field');
+                    if (parent) parent.classList.remove('has-error');
+                });
             }
             if (modalConfirmed) modalConfirmed.style.display = 'none';
-        }, 300);
+            if (lastActiveTrigger && typeof lastActiveTrigger.focus === 'function') {
+                lastActiveTrigger.focus();
+            }
+        }, 250);
     }
 
     if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
@@ -193,11 +238,68 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // Validación con Constraint Validation API sin recarga de página
+    function validateField(field) {
+        const errorSpan = document.getElementById(`${field.id}Error`);
+        const parent = field.closest('.input-field');
+
+        if (!field.checkValidity()) {
+            let msg = 'Este campo es obligatorio.';
+            if (field.validity.typeMismatch && field.type === 'email') {
+                msg = 'Ingrese un correo electrónico válido.';
+            } else if (field.validity.patternMismatch) {
+                msg = 'Ingrese entre 8 y 15 dígitos telefónicos.';
+            } else if (field.validity.tooShort) {
+                msg = `Mínimo ${field.minLength} caracteres.`;
+            }
+            field.classList.add('is-invalid');
+            field.setAttribute('aria-invalid', 'true');
+            if (parent) parent.classList.add('has-error');
+            if (errorSpan) errorSpan.textContent = msg;
+            return false;
+        } else {
+            field.classList.remove('is-invalid');
+            field.removeAttribute('aria-invalid');
+            if (parent) parent.classList.remove('has-error');
+            if (errorSpan) errorSpan.textContent = '';
+            return true;
+        }
+    }
+
     if (modalForm) {
+        const requiredInputs = modalForm.querySelectorAll('input[required]');
+        requiredInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.classList.contains('is-invalid')) validateField(input);
+            });
+            input.addEventListener('blur', () => validateField(input));
+        });
+
         modalForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            let firstInvalid = null;
+            requiredInputs.forEach(input => {
+                if (!validateField(input) && !firstInvalid) {
+                    firstInvalid = input;
+                }
+            });
+
+            if (firstInvalid) {
+                firstInvalid.focus();
+                return;
+            }
+
             modalForm.style.display = 'none';
-            if (modalConfirmed) modalConfirmed.style.display = 'block';
+            if (modalConfirmed) {
+                modalConfirmed.style.display = 'block';
+                if (closeConfirmedBtn) closeConfirmedBtn.focus();
+            }
         });
     }
 });
