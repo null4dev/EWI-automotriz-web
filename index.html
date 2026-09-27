@@ -69,9 +69,11 @@
         </nav>
     </header>
 
-    <!-- Hero Slider -->
-    <section class="slider-section" id="slider">
-        <div class="slider-wrapper" id="sliderWrapper">
+    <!-- Contenido Principal -->
+    <main id="mainContent">
+        <!-- Hero Slider -->
+        <section class="slider-section" id="slider" aria-label="Vehículos Destacados">
+            <div class="slider-wrapper" id="sliderWrapper">
             <div class="slide-item active" data-index="0">
                 <div class="slide-image-box">
                     <img src="img/slide1.webp" alt="Porsche 911 GT3 RS en Big Sur" class="slide-photo">
@@ -118,8 +120,7 @@
     </section>
 
     <!-- Autos -->
-    <main>
-        <section class="section-block" id="modelos">
+    <section class="section-block" id="modelos" aria-label="Superdeportivos de Élite">
             <div class="container">
                 <div class="section-title-wrap">
                     <span class="section-eyebrow">COLECCIÓN DRIVE 2026</span>
@@ -182,7 +183,7 @@
         </section>
 
         <!-- Camiones -->
-        <section class="section-block bg-subtle" id="camiones">
+        <section class="section-block bg-subtle" id="camiones" aria-label="División Comercial y Camiones">
             <div class="container">
                 <div class="section-title-wrap">
                     <span class="section-eyebrow">TRANSPORTE PESADO &amp; LOGÍSTICA DE ÉLITE</span>
@@ -245,7 +246,7 @@
         </section>
 
         <!-- Servicios -->
-        <section class="section-block" id="servicios">
+        <section class="section-block" id="servicios" aria-label="Taller y Servicios Especializados">
             <div class="container">
                 <div class="section-title-wrap">
                     <span class="section-eyebrow">SERVICIO TÉCNICO OFICIAL</span>
@@ -288,18 +289,18 @@
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- CTA Taller -->
-    <section class="service-cta-block">
-        <div class="container service-cta-inner">
-            <div class="service-cta-text">
-                <h3 class="service-cta-title">¿Necesitas agendar mantenimiento para tu auto o camión?</h3>
-                <p class="service-cta-desc">Reserva tu turno de taller con anticipación para atención preferente.</p>
+        <!-- CTA Taller -->
+        <section class="service-cta-block" aria-label="Agendar Mantenimiento">
+            <div class="container service-cta-inner">
+                <div class="service-cta-text">
+                    <h3 class="service-cta-title">¿Necesitas agendar mantenimiento para tu auto o camión?</h3>
+                    <p class="service-cta-desc">Reserva tu turno de taller con anticipación para atención preferente.</p>
+                </div>
+                <button class="btn btn-solid btn-lg" onclick="openAppointmentModal('Servicio de Taller / Mantenimiento')">Agendar Turno de Taller</button>
             </div>
-            <button class="btn btn-solid btn-lg" onclick="openAppointmentModal('Servicio de Taller / Mantenimiento')">Agendar Turno de Taller</button>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -315,7 +316,7 @@
                 </div>
             </div>
             <div class="footer-nav-col">
-                <h5 class="footer-heading">Navegación</h5>
+                <h4 class="footer-heading">Navegación</h4>
                 <ul class="footer-list">
                     <li><a href="#slider">Inicio</a></li>
                     <li><a href="#modelos">Autos de Élite</a></li>
@@ -324,7 +325,7 @@
                 </ul>
             </div>
             <div class="footer-nav-col">
-                <h5 class="footer-heading">Atención al Cliente</h5>
+                <h4 class="footer-heading">Atención al Cliente</h4>
                 <ul class="footer-list">
                     <li><a href="tel:+51987098654">Llamar a Asesor (+51 987 098 654)</a></li>
                     <li><a href="javascript:void(0)" onclick="openAppointmentModal('Servicio de Taller / Mantenimiento')">Agendar Turno de Taller</a></li>
@@ -345,7 +346,7 @@
 
     <!-- Modal Citas -->
     <div class="modal-backdrop" id="appointmentModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
             <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar modal">&times;</button>
             <div class="modal-top">
                 <span class="modal-eyebrow">ATENCIÓN PERSONALIZADA</span>

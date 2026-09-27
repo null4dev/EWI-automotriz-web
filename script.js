@@ -176,9 +176,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const vehicleSelect = document.getElementById('clientVehicle');
     let lastActiveTrigger = null;
 
+    let formSubmitted = false;
+
     window.openAppointmentModal = function(vehicleName) {
         if (!modal) return;
         lastActiveTrigger = document.activeElement;
+        formSubmitted = false;
 
         if (vehicleName && vehicleSelect) {
             for (let option of vehicleSelect.options) {
@@ -212,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('active');
         document.body.style.overflow = '';
         setTimeout(() => {
+            formSubmitted = false;
             if (modalForm) {
                 modalForm.reset();
                 modalForm.style.display = 'block';
@@ -276,13 +280,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const requiredInputs = modalForm.querySelectorAll('input[required]');
         requiredInputs.forEach(input => {
             input.addEventListener('input', () => {
-                if (input.classList.contains('is-invalid')) validateField(input);
+                if (formSubmitted || input.classList.contains('is-invalid')) {
+                    validateField(input);
+                }
             });
-            input.addEventListener('blur', () => validateField(input));
+            input.addEventListener('blur', () => {
+                if (formSubmitted || input.classList.contains('is-invalid')) {
+                    validateField(input);
+                }
+            });
         });
 
         modalForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            formSubmitted = true;
             let firstInvalid = null;
             requiredInputs.forEach(input => {
                 if (!validateField(input) && !firstInvalid) {

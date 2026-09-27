@@ -982,16 +982,16 @@ body.light-theme {
     --surface-border: rgba(15, 23, 42, 0.08);
     --surface-border-strong: rgba(15, 23, 42, 0.16);
 
-    --accent-gold: #96692d;
-    --accent-gold-hover: #7c541e;
-    --accent-gold-dim: rgba(150, 105, 45, 0.12);
+    --accent-gold: #845617;
+    --accent-gold-hover: #6d4610;
+    --accent-gold-dim: rgba(132, 86, 23, 0.12);
 
     --text-primary: #0f172a;
     --text-secondary: #334155;
     --text-muted: #475569;
 }
 
-/* Header en Modo Claro: Transparencia vítrea (Glassmorphism) con desenfoque elegante */
+/* Header en Modo Claro: Transparencia vítrea solo sobre el Hero, sólido al hacer scroll */
 body.light-theme .site-header {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%) !important;
     backdrop-filter: blur(16px) saturate(180%) !important;
@@ -1000,11 +1000,13 @@ body.light-theme .site-header {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
 }
 
+/* Al tocar el cuerpo de la página (scroll > 40px): se quita la transparencia igual que en el tema oscuro */
 body.light-theme .site-header.scrolled {
-    background: rgba(255, 255, 255, 0.88) !important;
-    backdrop-filter: blur(16px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -1023,7 +1025,7 @@ body.light-theme .header-link {
 }
 
 body.light-theme .header-link:hover {
-    color: #96692d !important;
+    color: #845617 !important;
 }
 
 body.light-theme .header-pill-btn {
@@ -1051,7 +1053,7 @@ body.light-theme .main-nav .nav-link.active {
 }
 
 body.light-theme .main-nav .nav-link.active::after {
-    background: #96692d !important;
+    background: #845617 !important;
 }
 
 body.light-theme .theme-toggle-btn {
@@ -1062,8 +1064,8 @@ body.light-theme .theme-toggle-btn {
 
 body.light-theme .theme-toggle-btn:hover {
     background: rgba(15, 23, 42, 0.08) !important;
-    border-color: #96692d !important;
-    color: #96692d !important;
+    border-color: #845617 !important;
+    color: #845617 !important;
 }
 
 body.light-theme .theme-toggle-btn .icon-moon {
@@ -1117,7 +1119,7 @@ body.light-theme .input-field select {
 
 body.light-theme .input-field input:focus,
 body.light-theme .input-field select:focus {
-    border-color: #96692d !important;
+    border-color: #845617 !important;
     background: #ffffff !important;
 }
 
@@ -1187,7 +1189,7 @@ body.light-theme .badge-label {
 }
 
 body.light-theme .phone-link {
-    color: #96692d !important;
+    color: #845617 !important;
 }
 
 body.light-theme .copyright-text {
